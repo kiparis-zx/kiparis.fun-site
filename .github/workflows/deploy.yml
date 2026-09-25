@@ -25,7 +25,7 @@ jobs:
         env:
           GITHUB_PAGES: "true"
           # "/" for <user>.github.io repos, "/<repo>/" otherwise
-          BASE_PATH: ${{ endsWith(github.event.repository.name, '.github.io') && '/' || format('/{0}/', github.event.repository.name) }}
+          BASE_PATH: "/"
         run: bunx vite build
       - run: cp dist/client/index.html dist/client/404.html && touch dist/client/.nojekyll
       - uses: actions/upload-pages-artifact@v3
